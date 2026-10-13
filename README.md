@@ -1,90 +1,94 @@
-# ESP32-S3 4WD Wi-Fi 遥控小车
+# ESP32-S3 4WD Wi-Fi Smart Car
 
-基于 **ESP32-S3** 的四轮差速驱动 Wi-Fi 遥控智能小车。无需安装任何 App，开机即发射 Wi-Fi 热点，手机或平板连接后通过浏览器访问网页即可使用高响应虚拟摇杆进行操控。同时集成 ST7789 IPS 屏幕状态显示、HC-SR04 超声波自动防撞以及通信失联急停保护。
+<p align="center">
+  <b><a href="README.md">English</a></b> | <b><a href="README_zh.md">简体中文</a></b>
+</p>
 
----
-
-## 🌟 核心特性
-
-- **免 App 网页遥控**：ESP32-S3 自建 SoftAP，内置轻量 HTTP 服务器与 WebSocket 实时双向通信，手机浏览器打开即玩。
-- **全向差速摇杆**：网页端虚拟摇杆，X/Y 轴平滑映射为左右轮差速输出，支持原地自转与平滑拐弯。
-- **超声波自动防撞**：HC-SR04 以 100ms 周期高频测距，当前方距离小于 20cm 时，硬件逻辑自动拦截前进动力，防止冲撞。
-- **屏幕实时仪表盘**：ST7789 1.54寸 IPS 屏幕，实时显示 Wi-Fi 状态、IP 地址、连接状态、前方测距及行驶状态。
-- **多重安全保护**：
-  - **断线保护**：客户端断开时立即刹车。
-  - **心跳超时**：超过 500ms 未收到遥控帧即判定失联并急停。
-- **纯原生 IDF 栈**：完全基于 ESP-IDF v6.1 原生组件（`esp_lcd`、`esp_http_server`、`ledc`、`esp_wifi`），无繁杂第三方库依赖。
+An **ESP32-S3** powered four-wheel differential drive (4WD) Wi-Fi remote-controlled smart car. No mobile app installation is required—the car broadcasts a SoftAP hotspot on boot, allowing any smartphone or PC browser to pilot the vehicle in real time using a low-latency virtual joystick. Features an on-board ST7789 IPS display dashboard, HC-SR04 ultrasonic forward collision avoidance, and fail-safe timeout protection.
 
 ---
 
-## 🛠 硬件清单
+## 🌟 Key Features
 
-| 器件 | 型号 / 规格 | 数量 | 作用 |
-|------|-----------|------|------|
-| 主控板 | ESP32-S3-N16R8 | 1 | 运算、Wi-Fi、WebSocket、屏幕驱动、PWM 控制 |
-| 电机驱动板 | TB6612FNG 模块 | 1 | 双路 H 桥直流电机驱动 |
-| 减速电机 | TT 电机 + 橡胶轮 | 4 | 四轮差速驱动（同侧两两并联） |
-| 小车底盘 | 四轮亚克力/金属底盘 | 1套 | 机械结构 |
-| 超声波传感器 | HC-SR04 | 1 | 前方避障测距 |
-| 屏幕 | 1.54 寸 240×240 IPS (ST7789, SPI) | 1 | 仪表盘与运行状态显示 |
-| 电机电池 | 6V ~ 8.4V 独立电池组 (2S 锂电等) | 1 | 供给电机驱动 VM（需与主控共地） |
-| 主控供电 | 移动电源 / 独立 5V 稳压模块 | 1 | 通过 Type-C 或 5V 引脚为主控供电 |
+- **Zero-Install Web Remote**: Broadcasts its own SoftAP with an embedded HTTP and WebSocket server. Connect Wi-Fi, open the browser, and drive.
+- **Omnidirectional Differential Joystick**: Dual-axis virtual joystick on the webpage smoothly maps X/Y offsets to differential motor speeds, supporting in-place zero-radius turns and curved steering.
+- **Ultrasonic Collision Avoidance**: HC-SR04 measures distance at 100ms intervals. Forward drive is automatically suppressed when distance < 20cm, while reversing and steering remain available.
+- **Real-Time IPS Dashboard**: 1.54" 240×240 ST7789 display provides live readouts for Wi-Fi SSID, IP, client connection status, ultrasonic obstacle distance, and motion states.
+- **Fail-Safe Mechanism**:
+  - **Disconnect Brake**: Motors stop immediately when the WebSocket connection closes.
+  - **Heartbeat Timeout**: Automatically halts motors if no joystick packet is received within 500ms.
+- **Pure Native ESP-IDF**: Built purely on native ESP-IDF v6.1 components (`esp_lcd`, `esp_http_server`, `ledc`, `esp_wifi`), free of heavy external dependencies.
 
 ---
 
-## 🔌 硬件接线表
+## 🛠 Hardware Bill of Materials (BOM)
 
-### 1. GPIO 引脚分配总表
-
-| 信号名称 | 所属外设 | ESP32-S3 GPIO | 说明 |
-|---------|---------|---------------|------|
-| **PWMA** | TB6612 | **GPIO 1** | 左轮速度 PWM (LEDC 20kHz) |
-| **AIN1** | TB6612 | **GPIO 2** | 左轮方向控制 1 |
-| **AIN2** | TB6612 | **GPIO 3** | 左轮方向控制 2 |
-| **PWMB** | TB6612 | **GPIO 4** | 右轮速度 PWM (LEDC 20kHz) |
-| **BIN1** | TB6612 | **GPIO 5** | 右轮方向控制 1 |
-| **BIN2** | TB6612 | **GPIO 6** | 右轮方向控制 2 |
-| **STBY** | TB6612 | **GPIO 45** | 驱动使能（高电平使能） |
-| **SCL / SCK** | ST7789 屏幕 | **GPIO 12** | SPI 时钟 |
-| **SDA / MOSI** | ST7789 屏幕 | **GPIO 11** | SPI 数据 |
-| **CS** | ST7789 屏幕 | **GPIO 10** | SPI 片选 |
-| **DC** | ST7789 屏幕 | **GPIO 9** | 数据/命令选择 |
-| **RST** | ST7789 屏幕 | **GPIO 8** | 屏幕复位 |
-| **BLK** | ST7789 屏幕 | **GPIO 7** | 背光控制（高电平点亮） |
-| **TRIG** | HC-SR04 | **GPIO 46** | 10μs 触发脉冲 |
-| **ECHO** | HC-SR04 | **GPIO 14** | 测距回波（**必须分压！**） |
-
-> ⚠️ **接线重要注意事项**：
-> 1. **ECHO 电平分压**：HC-SR04 供电为 5V，ECHO 输出也是 5V，而 ESP32-S3 GPIO 仅耐受 3.3V。必须在 ECHO 与 GPIO 14 之间串接电阻分压（如 ECHO → 1kΩ → GPIO 14，GPIO 14 → 2kΩ → GND）。
-> 2. **电源共地**：电机电池负极必须与 ESP32-S3 的 GND 连在一起，但**严禁**将电机的高压电池直接接进开发板的 5V 或 3.3V 引脚！
-> 3. **引脚避坑**：原方案曾使用 GPIO 0，但 GPIO 0 是启动 strapping 脚，分压下拉会导致上电常态进下载模式，固件已切换至 **GPIO 14**。
+| Component | Model / Specs | Qty | Function |
+|-----------|---------------|-----|----------|
+| Mainboard | ESP32-S3-N16R8 | 1 | Computing, Wi-Fi AP, WebSocket, display, PWM control |
+| Motor Driver | TB6612FNG Module | 1 | Dual H-bridge DC motor driver |
+| Gear Motors | TT Motors + Rubber Wheels | 4 | 4WD differential drive (wired in parallel per side) |
+| Chassis | 4WD Acrylic / Metal Chassis | 1 set | Mechanical structure |
+| Ultrasonic Sensor | HC-SR04 | 1 | Forward obstacle detection and ranging |
+| Display | 1.54" 240×240 IPS (ST7789, SPI) | 1 | Real-time status display |
+| Motor Battery | 6V ~ 8.4V battery pack (e.g., 2S Li-ion) | 1 | Supplies motor VM (common GND with ESP32) |
+| MCU Power | Power bank or regulated 5V source | 1 | Supplies ESP32-S3 via Type-C or 5V pin |
 
 ---
 
-## 🚀 编译与烧录
+## 🔌 Hardware Wiring Guide
 
-本项目自带编译打包脚本 `build.sh`，默认环境为 **ESP-IDF v6.1**。
+### 1. GPIO Pinout Table
 
-### 1. 编译固件
+| Signal | Peripheral | ESP32-S3 GPIO | Note |
+|--------|------------|---------------|------|
+| **PWMA** | TB6612 | **GPIO 1** | Left motor speed PWM (LEDC 20kHz) |
+| **AIN1** | TB6612 | **GPIO 2** | Left motor direction 1 |
+| **AIN2** | TB6612 | **GPIO 3** | Left motor direction 2 |
+| **PWMB** | TB6612 | **GPIO 4** | Right motor speed PWM (LEDC 20kHz) |
+| **BIN1** | TB6612 | **GPIO 5** | Right motor direction 1 |
+| **BIN2** | TB6612 | **GPIO 6** | Right motor direction 2 |
+| **STBY** | TB6612 | **GPIO 45** | Standby pin (pulled HIGH to enable) |
+| **SCL / SCK** | ST7789 LCD | **GPIO 12** | SPI Clock |
+| **SDA / MOSI** | ST7789 LCD | **GPIO 11** | SPI Data |
+| **CS** | ST7789 LCD | **GPIO 10** | SPI Chip Select |
+| **DC** | ST7789 LCD | **GPIO 9** | Data / Command select |
+| **RST** | ST7789 LCD | **GPIO 8** | LCD Reset |
+| **BLK** | ST7789 LCD | **GPIO 7** | Backlight control (HIGH = ON) |
+| **TRIG** | HC-SR04 | **GPIO 46** | 10μs trigger pulse |
+| **ECHO** | HC-SR04 | **GPIO 14** | Echo pulse (**Requires voltage divider!**) |
+
+> ⚠️ **Critical Wiring Precautions**:
+> 1. **ECHO Voltage Divider**: HC-SR04 operates at 5V and outputs 5V on ECHO, while ESP32-S3 GPIO pins tolerate up to 3.3V. You **must** divide the voltage (e.g., ECHO → 1kΩ → GPIO 14, and GPIO 14 → 2kΩ → GND).
+> 2. **Common Ground (GND)**: The motor battery negative (-) terminal must share a common ground with ESP32-S3 GND. **Never** connect the motor battery directly to the ESP32 5V or 3.3V power rails.
+> 3. **Avoid Strapping Pins**: GPIO 0 was avoided because pulling it down through the divider causes the chip to enter bootloader/download mode during reset. Firmware uses **GPIO 14** instead.
+
+---
+
+## 🚀 Build & Flash
+
+A helper script `build.sh` is provided in the repository, targeting **ESP-IDF v6.1**.
+
+### 1. Build Firmware
 
 ```bash
 ./build.sh
 ```
 
-### 2. 烧录固件
+### 2. Flash to Device
 
-通过 Type-C 数据线将 ESP32-S3 连接到电脑（自动探测 `/dev/cu.usbmodem*` 端口）：
+Connect ESP32-S3 to your computer via USB (auto-detects `/dev/cu.usbmodem*` on macOS):
 
 ```bash
 ./build.sh flash
 ```
 
-*若需手动指定串口：*
+*Or specify the port manually:*
 ```bash
 ./build.sh flash /dev/cu.usbmodem1101
 ```
 
-### 3. 查看串口监视器
+### 3. Monitor Serial Output
 
 ```bash
 ./build.sh monitor
@@ -92,42 +96,44 @@
 
 ---
 
-## 🎮 使用说明
+## 🎮 How to Operate
 
-1. **上电启动**：开发板开机后，屏幕将亮起并初始化热点，显示：
+1. **Power On**: On boot, the LCD lights up and initializes the SoftAP:
    - SSID: `4WD-Car`
-   - IP: `192.168.4.1`
-2. **连接 Wi-Fi**：手机或电脑搜索 Wi-Fi `4WD-Car`，输入密码 `12345678` 进行连接。
-3. **进入遥控界面**：打开手机浏览器访问：
+   - Password: `12345678`
+   - Default IP: `192.168.4.1`
+2. **Connect Wi-Fi**: Connect your phone or laptop to `4WD-Car` using password `12345678`.
+3. **Open Controller**: Open your browser and navigate to:
    ```
    http://192.168.4.1
    ```
-4. **遥控操作**：
-   - 推动屏幕正中央的虚拟摇杆即可控制小车前进、后退、转向。
-   - 松开手指，摇杆自动回中并刹车。
-   - 当遇到障碍物（前方距离 < 20cm）时，网页顶部与小车屏幕均会标红报警，自动拦截前进分量，可正常倒车或转向离开障碍区域。
+4. **Drive**:
+   - Drag the virtual joystick on the screen to drive forward, backward, or turn.
+   - Release the joystick to center and brake automatically.
+   - If an obstacle appears within 20cm, forward throttle is suppressed, and warning banners turn red on both the display and webpage. You can safely reverse or steer away.
 
 ---
 
-## 📂 项目结构
+## 📂 Project Structure
 
 ```
 4w-car/
 ├── docs/
-│   └── design.md          # 详细系统架构与接线设计文档
+│   └── design.md          # Comprehensive architecture & wiring design document
 ├── main/
-│   ├── CMakeLists.txt     # main 组件构建配置
-│   ├── index.html         # 网页摇杆控制前端（固件编译时二进制嵌入）
-│   └── main.c             # 核心业务逻辑（Wi-Fi/HTTP/WS/屏幕/电机/超声波）
-├── CMakeLists.txt         # ESP-IDF 顶层 CMake 配置
-├── sdkconfig.defaults     # 项目默认配置（S3 目标、Flash 大小、WS 支持）
-├── build.sh               # 一键编译/烧录/监视快捷脚本
-├── .gitignore             # Git 忽略配置
-└── README.md              # 项目说明文档
+│   ├── CMakeLists.txt     # Main component build configuration
+│   ├── index.html         # Web joystick interface (embedded into binary)
+│   └── main.c             # Firmware logic (Wi-Fi/HTTP/WS/LCD/Motor/Ultrasonic)
+├── CMakeLists.txt         # ESP-IDF top-level CMake configuration
+├── sdkconfig.defaults     # Project defaults (target esp32s3, 16MB flash, WS support)
+├── build.sh               # One-stop build, flash, and monitor script
+├── .gitignore             # Git ignore rules
+├── README.md              # English documentation
+└── README_zh.md           # Chinese documentation
 ```
 
 ---
 
-## 📄 开源许可
+## 📄 License
 
-本项目基于 [MIT License](LICENSE) 开源。
+This project is licensed under the [MIT License](LICENSE).
