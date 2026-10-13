@@ -1,0 +1,281 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="1330" viewBox="0 0 1320 1330">
+<rect x="0" y="0" width="1320" height="1330" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<text x="660.0" y="44" font-size="26" fill="#111827" text-anchor="middle" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">4WD Wi-Fi 遥控小车 接线图（面包板俯视布局）</text>
+<text x="660.0" y="72" font-size="14" fill="#4b5563" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">ESP32-S3-N16R8 居中；TB6612 在左上、屏幕在左下、HC-SR04 在右侧。模块都已按「从元件面朝上」镜像后的顺序绘制</text>
+<rect x="10" y="100" width="510" height="800" rx="14" fill="#f1f3f5" stroke="#d1d5db" stroke-width="1"/>
+<rect x="560" y="100" width="280" height="800" rx="14" fill="#f1f3f5" stroke="#d1d5db" stroke-width="1"/>
+<rect x="900" y="100" width="340" height="800" rx="14" fill="#f1f3f5" stroke="#d1d5db" stroke-width="1"/>
+<rect x="600" y="130" width="200" height="824" rx="10" fill="#1f2937" stroke="#000" stroke-width="1"/>
+<rect x="650" y="100" width="100" height="40" rx="4" fill="#6b7280" stroke="#374151" stroke-width="1"/>
+<text x="700" y="124" font-size="13" fill="#fff" text-anchor="middle" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">ESP32-S3-N16R8</text>
+<rect x="655" y="904" width="38" height="24" rx="4" fill="#9ca3af" stroke="#374151" stroke-width="1"/>
+<rect x="707" y="904" width="38" height="24" rx="4" fill="#9ca3af" stroke="#374151" stroke-width="1"/>
+<circle cx="620" cy="170" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="174" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">3V3</text>
+<circle cx="620" cy="204" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="208" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">3V3</text>
+<circle cx="620" cy="238" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="242" font-size="12" fill="#9ca3af" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">RST</text>
+<circle cx="620" cy="272" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="276" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">4</text>
+<circle cx="620" cy="306" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="310" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">5</text>
+<circle cx="620" cy="340" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="344" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">6</text>
+<circle cx="620" cy="374" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="378" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">7</text>
+<circle cx="620" cy="408" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="412" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">15</text>
+<circle cx="620" cy="442" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="446" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">16</text>
+<circle cx="620" cy="476" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="480" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">17</text>
+<circle cx="620" cy="510" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="514" font-size="12" fill="#9ca3af" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">18</text>
+<circle cx="620" cy="544" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="548" font-size="12" fill="#9ca3af" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">8</text>
+<circle cx="620" cy="578" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="582" font-size="12" fill="#9ca3af" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">3</text>
+<circle cx="620" cy="612" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="616" font-size="12" fill="#9ca3af" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">46</text>
+<circle cx="620" cy="646" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="650" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">9</text>
+<circle cx="620" cy="680" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="684" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">10</text>
+<circle cx="620" cy="714" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="718" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">11</text>
+<circle cx="620" cy="748" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="752" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">12</text>
+<circle cx="620" cy="782" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="786" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">13</text>
+<circle cx="620" cy="816" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="820" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">14</text>
+<circle cx="620" cy="850" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="854" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">5V</text>
+<circle cx="620" cy="884" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="632" y="888" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND</text>
+<circle cx="780" cy="170" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="174" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND</text>
+<circle cx="780" cy="204" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="208" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">TX</text>
+<circle cx="780" cy="238" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="242" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">RX</text>
+<circle cx="780" cy="272" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="276" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">1</text>
+<circle cx="780" cy="306" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="310" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">2</text>
+<circle cx="780" cy="340" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="344" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">42</text>
+<circle cx="780" cy="374" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="378" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">41</text>
+<circle cx="780" cy="408" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="412" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">40</text>
+<circle cx="780" cy="442" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="446" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">39</text>
+<circle cx="780" cy="476" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="480" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">38</text>
+<circle cx="780" cy="510" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="514" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">37</text>
+<circle cx="780" cy="544" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="548" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">36</text>
+<circle cx="780" cy="578" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="582" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">35</text>
+<circle cx="780" cy="612" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="616" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">0</text>
+<circle cx="780" cy="646" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="650" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">45</text>
+<circle cx="780" cy="680" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="684" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">48</text>
+<circle cx="780" cy="714" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="718" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">47</text>
+<circle cx="780" cy="748" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="752" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">21</text>
+<circle cx="780" cy="782" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="786" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">20</text>
+<circle cx="780" cy="816" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="820" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">19</text>
+<circle cx="780" cy="850" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="854" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND</text>
+<circle cx="780" cy="884" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+<text x="768" y="888" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND</text>
+<text x="810" y="514" font-size="10" fill="#9ca3af" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">35/36/37 被 PSRAM 占用</text>
+<text x="810" y="616" font-size="10" fill="#9ca3af" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">0/45 为 strapping 脚,不用</text>
+<rect x="290" y="254" width="180" height="274" rx="8" fill="#d62828" stroke="#7f1d1d" stroke-width="1"/>
+<text x="380.0" y="242" font-size="13" fill="#111827" text-anchor="middle" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">TB6612FNG 电机驱动（元件面朝上）</text>
+<circle cx="290" cy="272" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="302" y="276" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">VM</text>
+<circle cx="470" cy="272" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="276" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">PWMA</text>
+<circle cx="290" cy="306" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="302" y="310" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">VCC</text>
+<circle cx="470" cy="306" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="310" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">AIN2</text>
+<circle cx="290" cy="340" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="302" y="344" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND</text>
+<circle cx="470" cy="340" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="344" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">AIN1</text>
+<circle cx="290" cy="374" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="302" y="378" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">AO1</text>
+<circle cx="470" cy="374" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="378" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">STBY</text>
+<circle cx="290" cy="408" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="302" y="412" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">AO2</text>
+<circle cx="470" cy="408" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="412" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">BIN1</text>
+<circle cx="290" cy="442" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="302" y="446" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">BO2</text>
+<circle cx="470" cy="442" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="446" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">BIN2</text>
+<circle cx="290" cy="476" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="302" y="480" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">BO1</text>
+<circle cx="470" cy="476" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="480" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">PWMB</text>
+<circle cx="290" cy="510" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="302" y="514" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND</text>
+<circle cx="470" cy="510" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="514" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND</text>
+<line x1="470" y1="272" x2="620" y2="272" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text x="545.0" y="266" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO4</text>
+<line x1="470" y1="306" x2="620" y2="306" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text x="545.0" y="300" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO5</text>
+<line x1="470" y1="340" x2="620" y2="340" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text x="545.0" y="334" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO6</text>
+<line x1="470" y1="374" x2="620" y2="374" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text x="545.0" y="368" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO7</text>
+<line x1="470" y1="408" x2="620" y2="408" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text x="545.0" y="402" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO15</text>
+<line x1="470" y1="442" x2="620" y2="442" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text x="545.0" y="436" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO16</text>
+<line x1="470" y1="476" x2="620" y2="476" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text x="545.0" y="470" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO17</text>
+<line x1="290" y1="272" x2="230" y2="272" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+<circle cx="230" cy="272" r="4" fill="#dc2626" stroke="#fff" stroke-width="1.5"/>
+<text x="222" y="276" font-size="12" fill="#dc2626" text-anchor="end" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">电机电池 +  (6–15V)</text>
+<line x1="290" y1="306" x2="230" y2="306" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+<circle cx="230" cy="306" r="4" fill="#dc2626" stroke="#fff" stroke-width="1.5"/>
+<text x="222" y="310" font-size="12" fill="#dc2626" text-anchor="end" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">3V3 (开发板左排最上)</text>
+<line x1="290" y1="340" x2="230" y2="340" stroke="#111827" stroke-width="3" stroke-linecap="round"/>
+<circle cx="230" cy="340" r="4" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="222" y="344" font-size="12" fill="#111827" text-anchor="end" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND (与电池 − 、开发板共地)</text>
+<line x1="290" y1="374" x2="230" y2="374" stroke="#7c3aed" stroke-width="3" stroke-linecap="round"/>
+<circle cx="230" cy="374" r="4" fill="#7c3aed" stroke="#fff" stroke-width="1.5"/>
+<text x="222" y="378" font-size="12" fill="#7c3aed" text-anchor="end" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">左电机×2 并联 →</text>
+<line x1="290" y1="408" x2="230" y2="408" stroke="#7c3aed" stroke-width="3" stroke-linecap="round"/>
+<circle cx="230" cy="408" r="4" fill="#7c3aed" stroke="#fff" stroke-width="1.5"/>
+<text x="222" y="412" font-size="12" fill="#7c3aed" text-anchor="end" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">左电机×2 并联 →</text>
+<line x1="290" y1="442" x2="230" y2="442" stroke="#0891b2" stroke-width="3" stroke-linecap="round"/>
+<circle cx="230" cy="442" r="4" fill="#0891b2" stroke="#fff" stroke-width="1.5"/>
+<text x="222" y="446" font-size="12" fill="#0891b2" text-anchor="end" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">右电机×2 并联 →</text>
+<line x1="290" y1="476" x2="230" y2="476" stroke="#0891b2" stroke-width="3" stroke-linecap="round"/>
+<circle cx="230" cy="476" r="4" fill="#0891b2" stroke="#fff" stroke-width="1.5"/>
+<text x="222" y="480" font-size="12" fill="#0891b2" text-anchor="end" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">右电机×2 并联 →</text>
+<line x1="290" y1="510" x2="230" y2="510" stroke="#111827" stroke-width="3" stroke-linecap="round"/>
+<circle cx="230" cy="510" r="4" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="222" y="514" font-size="12" fill="#111827" text-anchor="end" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND</text>
+<line x1="470" y1="510" x2="520" y2="510" stroke="#111827" stroke-width="3" stroke-linecap="round"/>
+<circle cx="520" cy="510" r="4" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="528" y="514" font-size="12" fill="#111827" text-anchor="start" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND</text>
+<rect x="290" y="560" width="180" height="276" rx="8" fill="#374151" stroke="#000" stroke-width="1"/>
+<text x="380.0" y="548" font-size="13" fill="#111827" text-anchor="middle" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">1.54" ST7789 屏幕</text>
+<rect x="304" y="592" width="70" height="140" rx="4" fill="#0b1220" stroke="#6b7280" stroke-width="1"/>
+<text x="339" y="666" font-size="11" fill="#9ca3af" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">240×240</text>
+<circle cx="470" cy="578" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="582" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND</text>
+<circle cx="470" cy="612" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="616" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">VCC</text>
+<circle cx="470" cy="646" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="650" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">SCL</text>
+<line x1="470" y1="646" x2="620" y2="646" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text x="545.0" y="640" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO9</text>
+<circle cx="470" cy="680" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="684" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">SDA</text>
+<line x1="470" y1="680" x2="620" y2="680" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text x="545.0" y="674" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO10</text>
+<circle cx="470" cy="714" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="718" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">RST</text>
+<line x1="470" y1="714" x2="620" y2="714" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text x="545.0" y="708" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO11</text>
+<circle cx="470" cy="748" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="752" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">DC</text>
+<line x1="470" y1="748" x2="620" y2="748" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text x="545.0" y="742" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO12</text>
+<circle cx="470" cy="782" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="786" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">CS</text>
+<line x1="470" y1="782" x2="620" y2="782" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text x="545.0" y="776" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO13</text>
+<circle cx="470" cy="816" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="458" y="820" font-size="12" fill="#fff" text-anchor="end" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">BL</text>
+<line x1="470" y1="816" x2="620" y2="816" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text x="545.0" y="810" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO14</text>
+<line x1="470" y1="578" x2="520" y2="578" stroke="#111827" stroke-width="3" stroke-linecap="round"/>
+<circle cx="520" cy="578" r="4" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="528" y="582" font-size="12" fill="#111827" text-anchor="start" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND</text>
+<line x1="470" y1="612" x2="520" y2="612" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+<circle cx="520" cy="612" r="4" fill="#dc2626" stroke="#fff" stroke-width="1.5"/>
+<text x="528" y="616" font-size="12" fill="#dc2626" text-anchor="start" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">3V3</text>
+<line x1="620" y1="170" x2="582" y2="170" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+<circle cx="582" cy="170" r="4" fill="#dc2626" stroke="#fff" stroke-width="1.5"/>
+<text x="574" y="174" font-size="12" fill="#dc2626" text-anchor="end" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">3V3 → 屏幕 VCC / TB6612 VCC</text>
+<line x1="620" y1="204" x2="582" y2="204" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+<circle cx="582" cy="204" r="4" fill="#dc2626" stroke="#fff" stroke-width="1.5"/>
+<text x="574" y="208" font-size="12" fill="#dc2626" text-anchor="end" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">3V3 (备用)</text>
+<line x1="620" y1="850" x2="582" y2="850" stroke="#ea580c" stroke-width="3" stroke-linecap="round"/>
+<circle cx="582" cy="850" r="4" fill="#ea580c" stroke="#fff" stroke-width="1.5"/>
+<text x="574" y="854" font-size="12" fill="#ea580c" text-anchor="end" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">5V → HC-SR04 VCC</text>
+<line x1="620" y1="884" x2="582" y2="884" stroke="#111827" stroke-width="3" stroke-linecap="round"/>
+<circle cx="582" cy="884" r="4" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="574" y="888" font-size="12" fill="#111827" text-anchor="end" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND → 共地</text>
+<rect x="990" y="288" width="170" height="140" rx="8" fill="#2563eb" stroke="#1e3a8a" stroke-width="1"/>
+<text x="1075" y="276" font-size="13" fill="#111827" text-anchor="middle" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">HC-SR04 超声波</text>
+<circle cx="1088" cy="357" r="21" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+<circle cx="1136" cy="357" r="21" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+<circle cx="990" cy="306" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="1002" y="310" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">VCC</text>
+<circle cx="990" cy="340" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="1002" y="344" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">TRIG</text>
+<circle cx="990" cy="374" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="1002" y="378" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">ECHO</text>
+<circle cx="990" cy="408" r="5" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="1002" y="412" font-size="12" fill="#fff" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND</text>
+<line x1="990" y1="306" x2="950" y2="306" stroke="#ea580c" stroke-width="3" stroke-linecap="round"/>
+<circle cx="950" cy="306" r="4" fill="#ea580c" stroke="#fff" stroke-width="1.5"/>
+<text x="942" y="310" font-size="12" fill="#ea580c" text-anchor="end" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">5V</text>
+<line x1="990" y1="408" x2="950" y2="408" stroke="#111827" stroke-width="3" stroke-linecap="round"/>
+<circle cx="950" cy="408" r="4" fill="#111827" stroke="#fff" stroke-width="1.5"/>
+<text x="942" y="412" font-size="12" fill="#111827" text-anchor="end" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND</text>
+<line x1="990" y1="340" x2="780" y2="340" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text x="885.0" y="334" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO42</text>
+<line x1="990" y1="374" x2="972" y2="374" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<rect x="920" y="366" width="52" height="16" rx="3" fill="#fff" stroke="#92400e" stroke-width="2"/>
+<text x="946" y="378" font-size="11" fill="#92400e" text-anchor="middle" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">1kΩ</text>
+<line x1="920" y1="374" x2="880" y2="374" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<line x1="880" y1="374" x2="780" y2="374" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="880" cy="374" r="5" fill="#16a34a" stroke="#fff" stroke-width="1.5"/>
+<line x1="880" y1="374" x2="880" y2="394" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<rect x="872" y="394" width="16" height="52" rx="3" fill="#fff" stroke="#92400e" stroke-width="2"/>
+<text x="894" y="424" font-size="11" fill="#92400e" text-anchor="start" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">2kΩ</text>
+<line x1="880" y1="446" x2="880" y2="466" stroke="#111827" stroke-width="3" stroke-linecap="round"/>
+<line x1="870" y1="466" x2="890" y2="466" stroke="#111827" stroke-width="3" stroke-linecap="round"/>
+<line x1="874" y1="472" x2="886" y2="472" stroke="#111827" stroke-width="3" stroke-linecap="round"/>
+<text x="820.0" y="368" font-size="11" fill="#166534" text-anchor="middle" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GPIO41</text>
+<text x="60" y="1010" font-size="16" fill="#111827" text-anchor="start" font-weight="600" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">线色图例</text>
+<line x1="60" y1="1034" x2="96" y2="1034" stroke="#16a34a" stroke-width="5" stroke-linecap="round"/>
+<text x="104" y="1038" font-size="13" fill="#111827" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">信号线（GPIO）</text>
+<line x1="260" y1="1034" x2="296" y2="1034" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/>
+<text x="304" y="1038" font-size="13" fill="#111827" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">3V3 / 电池 +</text>
+<line x1="460" y1="1034" x2="496" y2="1034" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+<text x="504" y="1038" font-size="13" fill="#111827" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">5V</text>
+<line x1="660" y1="1034" x2="696" y2="1034" stroke="#111827" stroke-width="5" stroke-linecap="round"/>
+<text x="704" y="1038" font-size="13" fill="#111827" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">GND / 公共地</text>
+<line x1="860" y1="1034" x2="896" y2="1034" stroke="#7c3aed" stroke-width="5" stroke-linecap="round"/>
+<text x="904" y="1038" font-size="13" fill="#111827" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">左侧电机</text>
+<line x1="1060" y1="1034" x2="1096" y2="1034" stroke="#0891b2" stroke-width="5" stroke-linecap="round"/>
+<text x="1104" y="1038" font-size="13" fill="#111827" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">右侧电机</text>
+<text x="60" y="1080" font-size="14" fill="#1f2937" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">① 电机电池 − 必须与开发板 GND 接在一起（共地）；电池 + 只接 TB6612 的 VM，绝不接开发板 5V / 3V3。</text>
+<text x="60" y="1108" font-size="14" fill="#1f2937" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">② ECHO 输出 5V：必须经 1kΩ 串联到 GPIO41，并在 GPIO41 处再接 2kΩ 到 GND 分压后才能进开发板。</text>
+<text x="60" y="1136" font-size="14" fill="#1f2937" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">③ TB6612 的 VCC（逻辑电源）接 3V3；屏幕 VCC 接 3V3；HC-SR04 VCC 接 5V。开发板 5V 脚在左排倒数第 2 个。</text>
+<text x="60" y="1164" font-size="14" fill="#1f2937" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">④ 左右电机各 2 个并联：AO1/AO2 -> 左侧两个电机；BO1/BO2 -> 右侧两个电机（方向反了改固件 INVERT_LEFT / INVERT_RIGHT）。</text>
+<text x="60" y="1192" font-size="14" fill="#1f2937" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">⑤ 屏幕 SCL/SDA/RST/DC/CS/BL 依次接 GPIO9~14，在开发板左排下部连续 6 个孔；TB6612 控制脚接 GPIO4/5/6/7/15/16/17。</text>
+<text x="60" y="1220" font-size="14" fill="#1f2937" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">⑥ 本图假设 TB6612 的 PWMA 端朝上（第 1 行）、元件面朝上；若你的模块反着插，仅把竖向顺序倒过来，按引脚名连线即可。</text>
+<text x="60" y="1248" font-size="14" fill="#1f2937" text-anchor="start" font-weight="400" font-family="PingFang SC, Hiragino Sans GB, Arial Unicode MS, Helvetica, sans-serif">⑦ 开发板底部有两个 USB-C 口，请用烧录时能识别出 /dev/cu.usbmodem* 的那一个；电机电池未接好前先不要上电跑电机。</text>
+</svg>

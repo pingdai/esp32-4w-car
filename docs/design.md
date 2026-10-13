@@ -14,7 +14,7 @@
 | 2 | 确定工具链：改用本机已装的 ESP-IDF v6.1（Arduino CLI 下载过慢，用户选择 IDF）| ✅ 已完成 | `~/esp/esp-idf-v6.1`，无需额外下载 |
 | 3 | 创建 IDF 工程骨架（CMakeLists / sdkconfig.defaults）| ✅ 已完成 | target=esp32s3，16MB flash，USB-Serial-JTAG 控制台，HTTPD WS 支持 |
 | 4 | 依赖库 | ✅ 已完成 | 全部使用 IDF 内置组件（esp_lcd ST7789、esp_http_server WebSocket），无第三方库 |
-| 5 | 编写主程序 `main/main.c` + `main/index.html` | ✅ 已完成 | ECHO 引脚由 GPIO0 改为 GPIO14（避免进下载模式）；WebSocket 与 HTTP 同端口，路径 `/ws` |
+| 5 | 编写主程序 `main/main.c` + `main/index.html` | ✅ 已完成 | 引脚按面包板接线顺序重排（ECHO 不再用 GPIO0，避免进下载模式）；WebSocket 与 HTTP 同端口，路径 `/ws` |
 | 6 | 编写 `build.sh` 编译+烧录脚本 | ✅ 已完成 | `./build.sh` / `./build.sh flash [PORT]` / `./build.sh monitor` |
 | 7 | 编译验证（不烧录，仅检查代码无误）| ✅ 已完成 | 编译通过，`car4wd.bin` 0xd7750 字节（默认 1MB 分区剩余 16%）|
 | **8** | **⚠️ 人工接线确认（烧录前必须完成）** | **⬜ 未开始** | **需用户确认后方可继续** |
@@ -113,27 +113,33 @@
 
 ## 四、硬件接线
 
+> 接线图见 [`wiring.png`](wiring.png)（矢量版 `wiring.svg`），按面包板俯视布局绘制。
+
+![接线图](wiring.png)
+
 ### 4.1 GPIO 分配总表
 
 | 功能 | 信号 | GPIO |
 |------|------|------|
-| ST7789 SPI CLK | SCL | GPIO 12 |
-| ST7789 SPI MOSI | SDA | GPIO 11 |
-| ST7789 片选 | CS | GPIO 10 |
-| ST7789 数据/命令 | DC | GPIO 9 |
-| ST7789 复位 | RST | GPIO 8 |
-| ST7789 背光 | BL | GPIO 7 |
-| TB6612 左侧 PWM | PWMA | GPIO 1 |
-| TB6612 左侧方向 1 | AIN1 | GPIO 2 |
-| TB6612 左侧方向 2 | AIN2 | GPIO 3 |
-| TB6612 右侧 PWM | PWMB | GPIO 4 |
-| TB6612 右侧方向 1 | BIN1 | GPIO 5 |
-| TB6612 右侧方向 2 | BIN2 | GPIO 6 |
-| TB6612 使能 | STBY | GPIO 45 |
-| HC-SR04 触发 | TRIG | GPIO 46 |
-| HC-SR04 回波 | ECHO | GPIO 14 |
+| ST7789 SPI CLK | SCL | GPIO 9 |
+| ST7789 SPI MOSI | SDA | GPIO 10 |
+| ST7789 片选 | CS | GPIO 13 |
+| ST7789 数据/命令 | DC | GPIO 12 |
+| ST7789 复位 | RST | GPIO 11 |
+| ST7789 背光 | BL | GPIO 14 |
+| TB6612 左侧 PWM | PWMA | GPIO 4 |
+| TB6612 左侧方向 1 | AIN1 | GPIO 6 |
+| TB6612 左侧方向 2 | AIN2 | GPIO 5 |
+| TB6612 右侧 PWM | PWMB | GPIO 17 |
+| TB6612 右侧方向 1 | BIN1 | GPIO 15 |
+| TB6612 右侧方向 2 | BIN2 | GPIO 16 |
+| TB6612 使能 | STBY | GPIO 7 |
+| HC-SR04 触发 | TRIG | GPIO 42 |
+| HC-SR04 回波 | ECHO | GPIO 41 |
 
-> **注意**：原方案 ECHO 用 GPIO 0，但 GPIO 0 是下载模式 strapping 脚，分压电阻的 2kΩ 下拉会让它在复位时为低电平，导致开发板每次复位都进下载模式，因此改为 GPIO 14。
+> **注意**：原方案 ECHO 用 GPIO 0，但 GPIO 0 是下载模式 strapping 脚，分压电阻的 2kΩ 下拉会让它在复位时为低电平，导致开发板每次复位都进下载模式，因此避开 GPIO 0。
+>
+> **引脚排布原则（方便面包板接线）**：每个模块使用开发板上连续的一段引脚，且顺序与模块引脚一致——屏幕 GPIO 9–14（左排下部），TB6612 控制脚 GPIO 4/5/6/7/15/16/17（左排上部），HC-SR04 GPIO 42/41（右排）。同时避开 strapping 脚（0/3/45/46）、PSRAM 脚（35/36/37）、USB（19/20）和板载 RGB 灯（48）。
 
 ### 4.2 ST7789 屏幕接线
 
@@ -141,12 +147,12 @@
 |---------|------|
 | GND | GND |
 | VCC | 3.3 V |
-| SCL | GPIO 12 |
-| SDA | GPIO 11 |
-| RST | GPIO 8 |
-| DC | GPIO 9 |
-| CS | GPIO 10 |
-| BL | GPIO 7（高电平点亮）|
+| SCL | GPIO 9 |
+| SDA | GPIO 10 |
+| RST | GPIO 11 |
+| DC | GPIO 12 |
+| CS | GPIO 13 |
+| BL | GPIO 14（高电平点亮）|
 
 ### 4.3 TB6612FNG 接线
 
@@ -155,14 +161,14 @@
 | VM | 电机电池正极（6–15 V）|
 | VCC | 3.3 V（逻辑电源）|
 | GND | 公共地（开发板 GND + 电池负极共地）|
-| STBY | GPIO 45（需拉高才能工作）|
-| PWMA | GPIO 1 |
-| AIN1 | GPIO 2 |
-| AIN2 | GPIO 3 |
+| STBY | GPIO 7（需拉高才能工作）|
+| PWMA | GPIO 4 |
+| AIN1 | GPIO 6 |
+| AIN2 | GPIO 5 |
 | AO1, AO2 | 左前电机 + 左后电机（并联）|
-| PWMB | GPIO 4 |
-| BIN1 | GPIO 5 |
-| BIN2 | GPIO 6 |
+| PWMB | GPIO 17 |
+| BIN1 | GPIO 15 |
+| BIN2 | GPIO 16 |
 | BO1, BO2 | 右前电机 + 右后电机（并联）|
 
 > **电机电源与开发板务必共地，但电机电源不向开发板 5V/3.3V 引脚供电。**
@@ -173,11 +179,11 @@
 |-------------|------|
 | VCC | 5 V（从开发板 5V 引脚或独立 5V 取）|
 | GND | 公共地 |
-| TRIG | GPIO 46 |
-| ECHO | GPIO 14（需串 1kΩ + 2kΩ 电阻分压降至 3.3V）|
+| TRIG | GPIO 42 |
+| ECHO | GPIO 41（需串 1kΩ + 2kΩ 电阻分压降至 3.3V）|
 
 > **电平转换**：HC-SR04 ECHO 输出为 5V，ESP32-S3 GPIO 最高耐受 3.3 V。  
-> 方案：ECHO → 1kΩ → GPIO 14，GPIO 14 → 2kΩ → GND（分压后约 3.3V）。
+> 方案：ECHO → 1kΩ → GPIO 41，GPIO 41 → 2kΩ → GND（分压后约 3.3V）。
 
 ---
 

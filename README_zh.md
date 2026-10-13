@@ -38,30 +38,36 @@
 
 ## 🔌 硬件接线表
 
+### 面包板接线图
+
+![接线图](docs/wiring.png)
+
+（矢量版：[`docs/wiring.svg`](docs/wiring.svg)；模块按元件面朝上的俯视方向绘制。）
+
 ### 1. GPIO 引脚分配总表
 
 | 信号名称 | 所属外设 | ESP32-S3 GPIO | 说明 |
 |---------|---------|---------------|------|
-| **PWMA** | TB6612 | **GPIO 1** | 左轮速度 PWM (LEDC 20kHz) |
-| **AIN1** | TB6612 | **GPIO 2** | 左轮方向控制 1 |
-| **AIN2** | TB6612 | **GPIO 3** | 左轮方向控制 2 |
-| **PWMB** | TB6612 | **GPIO 4** | 右轮速度 PWM (LEDC 20kHz) |
-| **BIN1** | TB6612 | **GPIO 5** | 右轮方向控制 1 |
-| **BIN2** | TB6612 | **GPIO 6** | 右轮方向控制 2 |
-| **STBY** | TB6612 | **GPIO 45** | 驱动使能（高电平使能） |
-| **SCL / SCK** | ST7789 屏幕 | **GPIO 12** | SPI 时钟 |
-| **SDA / MOSI** | ST7789 屏幕 | **GPIO 11** | SPI 数据 |
-| **CS** | ST7789 屏幕 | **GPIO 10** | SPI 片选 |
-| **DC** | ST7789 屏幕 | **GPIO 9** | 数据/命令选择 |
-| **RST** | ST7789 屏幕 | **GPIO 8** | 屏幕复位 |
-| **BLK** | ST7789 屏幕 | **GPIO 7** | 背光控制（高电平点亮） |
-| **TRIG** | HC-SR04 | **GPIO 46** | 10μs 触发脉冲 |
-| **ECHO** | HC-SR04 | **GPIO 14** | 测距回波（**必须分压！**） |
+| **PWMA** | TB6612 | **GPIO 4** | 左轮速度 PWM (LEDC 20kHz) |
+| **AIN1** | TB6612 | **GPIO 6** | 左轮方向控制 1 |
+| **AIN2** | TB6612 | **GPIO 5** | 左轮方向控制 2 |
+| **PWMB** | TB6612 | **GPIO 17** | 右轮速度 PWM (LEDC 20kHz) |
+| **BIN1** | TB6612 | **GPIO 15** | 右轮方向控制 1 |
+| **BIN2** | TB6612 | **GPIO 16** | 右轮方向控制 2 |
+| **STBY** | TB6612 | **GPIO 7** | 驱动使能（高电平使能） |
+| **SCL / SCK** | ST7789 屏幕 | **GPIO 9** | SPI 时钟 |
+| **SDA / MOSI** | ST7789 屏幕 | **GPIO 10** | SPI 数据 |
+| **CS** | ST7789 屏幕 | **GPIO 13** | SPI 片选 |
+| **DC** | ST7789 屏幕 | **GPIO 12** | 数据/命令选择 |
+| **RST** | ST7789 屏幕 | **GPIO 11** | 屏幕复位 |
+| **BLK** | ST7789 屏幕 | **GPIO 14** | 背光控制（高电平点亮） |
+| **TRIG** | HC-SR04 | **GPIO 42** | 10μs 触发脉冲 |
+| **ECHO** | HC-SR04 | **GPIO 41** | 测距回波（**必须分压！**） |
 
 > ⚠️ **接线重要注意事项**：
-> 1. **ECHO 电平分压**：HC-SR04 供电为 5V，ECHO 输出也是 5V，而 ESP32-S3 GPIO 仅耐受 3.3V。必须在 ECHO 与 GPIO 14 之间串接电阻分压（如 ECHO → 1kΩ → GPIO 14，GPIO 14 → 2kΩ → GND）。
+> 1. **ECHO 电平分压**：HC-SR04 供电为 5V，ECHO 输出也是 5V，而 ESP32-S3 GPIO 仅耐受 3.3V。必须在 ECHO 与 GPIO 41 之间串接电阻分压（如 ECHO → 1kΩ → GPIO 41，GPIO 41 → 2kΩ → GND）。
 > 2. **电源共地**：电机电池负极必须与 ESP32-S3 的 GND 连在一起，但**严禁**将电机的高压电池直接接进开发板的 5V 或 3.3V 引脚！
-> 3. **引脚避坑**：原方案曾使用 GPIO 0，但 GPIO 0 是启动 strapping 脚，分压下拉会导致上电常态进下载模式，固件已切换至 **GPIO 14**。
+> 3. **引脚避坑**：原方案曾使用 GPIO 0，但 GPIO 0 是启动 strapping 脚，分压下拉会导致上电常态进下载模式，固件已切换至 **GPIO 41**（同时 STBY / TRIG 也避开了 GPIO 45 / 46 等 strapping 脚）。
 
 ---
 

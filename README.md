@@ -38,30 +38,36 @@ An **ESP32-S3** powered four-wheel differential drive (4WD) Wi-Fi remote-control
 
 ## 🔌 Hardware Wiring Guide
 
+### Breadboard wiring diagram
+
+![Wiring diagram](docs/wiring.png)
+
+(Vector version: [`docs/wiring.svg`](docs/wiring.svg). Modules are drawn top-down, component side up.)
+
 ### 1. GPIO Pinout Table
 
 | Signal | Peripheral | ESP32-S3 GPIO | Note |
 |--------|------------|---------------|------|
-| **PWMA** | TB6612 | **GPIO 1** | Left motor speed PWM (LEDC 20kHz) |
-| **AIN1** | TB6612 | **GPIO 2** | Left motor direction 1 |
-| **AIN2** | TB6612 | **GPIO 3** | Left motor direction 2 |
-| **PWMB** | TB6612 | **GPIO 4** | Right motor speed PWM (LEDC 20kHz) |
-| **BIN1** | TB6612 | **GPIO 5** | Right motor direction 1 |
-| **BIN2** | TB6612 | **GPIO 6** | Right motor direction 2 |
-| **STBY** | TB6612 | **GPIO 45** | Standby pin (pulled HIGH to enable) |
-| **SCL / SCK** | ST7789 LCD | **GPIO 12** | SPI Clock |
-| **SDA / MOSI** | ST7789 LCD | **GPIO 11** | SPI Data |
-| **CS** | ST7789 LCD | **GPIO 10** | SPI Chip Select |
-| **DC** | ST7789 LCD | **GPIO 9** | Data / Command select |
-| **RST** | ST7789 LCD | **GPIO 8** | LCD Reset |
-| **BLK** | ST7789 LCD | **GPIO 7** | Backlight control (HIGH = ON) |
-| **TRIG** | HC-SR04 | **GPIO 46** | 10μs trigger pulse |
-| **ECHO** | HC-SR04 | **GPIO 14** | Echo pulse (**Requires voltage divider!**) |
+| **PWMA** | TB6612 | **GPIO 4** | Left motor speed PWM (LEDC 20kHz) |
+| **AIN1** | TB6612 | **GPIO 6** | Left motor direction 1 |
+| **AIN2** | TB6612 | **GPIO 5** | Left motor direction 2 |
+| **PWMB** | TB6612 | **GPIO 17** | Right motor speed PWM (LEDC 20kHz) |
+| **BIN1** | TB6612 | **GPIO 15** | Right motor direction 1 |
+| **BIN2** | TB6612 | **GPIO 16** | Right motor direction 2 |
+| **STBY** | TB6612 | **GPIO 7** | Standby pin (pulled HIGH to enable) |
+| **SCL / SCK** | ST7789 LCD | **GPIO 9** | SPI Clock |
+| **SDA / MOSI** | ST7789 LCD | **GPIO 10** | SPI Data |
+| **CS** | ST7789 LCD | **GPIO 13** | SPI Chip Select |
+| **DC** | ST7789 LCD | **GPIO 12** | Data / Command select |
+| **RST** | ST7789 LCD | **GPIO 11** | LCD Reset |
+| **BLK** | ST7789 LCD | **GPIO 14** | Backlight control (HIGH = ON) |
+| **TRIG** | HC-SR04 | **GPIO 42** | 10μs trigger pulse |
+| **ECHO** | HC-SR04 | **GPIO 41** | Echo pulse (**Requires voltage divider!**) |
 
 > ⚠️ **Critical Wiring Precautions**:
-> 1. **ECHO Voltage Divider**: HC-SR04 operates at 5V and outputs 5V on ECHO, while ESP32-S3 GPIO pins tolerate up to 3.3V. You **must** divide the voltage (e.g., ECHO → 1kΩ → GPIO 14, and GPIO 14 → 2kΩ → GND).
+> 1. **ECHO Voltage Divider**: HC-SR04 operates at 5V and outputs 5V on ECHO, while ESP32-S3 GPIO pins tolerate up to 3.3V. You **must** divide the voltage (e.g., ECHO → 1kΩ → GPIO 41, and GPIO 41 → 2kΩ → GND).
 > 2. **Common Ground (GND)**: The motor battery negative (-) terminal must share a common ground with ESP32-S3 GND. **Never** connect the motor battery directly to the ESP32 5V or 3.3V power rails.
-> 3. **Avoid Strapping Pins**: GPIO 0 was avoided because pulling it down through the divider causes the chip to enter bootloader/download mode during reset. Firmware uses **GPIO 14** instead.
+> 3. **Avoid Strapping Pins**: GPIO 0 was avoided because pulling it down through the divider causes the chip to enter bootloader/download mode during reset. Firmware uses **GPIO 41** instead.
 
 ---
 

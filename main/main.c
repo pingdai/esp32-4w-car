@@ -34,24 +34,28 @@
 static const char *TAG = "car";
 
 // ---------------- 引脚 ----------------
-#define PIN_TFT_SCL  GPIO_NUM_12
-#define PIN_TFT_SDA  GPIO_NUM_11
-#define PIN_TFT_CS   GPIO_NUM_10
-#define PIN_TFT_DC   GPIO_NUM_9
-#define PIN_TFT_RST  GPIO_NUM_8
-#define PIN_TFT_BL   GPIO_NUM_7
+// 引脚按面包板接线顺序排布: 每个模块使用开发板上连续的一段引脚, 且与模块自身引脚顺序一致
+// ST7789 (屏幕引脚顺序 SCL SDA RST DC CS BL) -> GPIO 9..14 (SPI 经 GPIO 矩阵, 任意脚均可)
+#define PIN_TFT_SCL  GPIO_NUM_9
+#define PIN_TFT_SDA  GPIO_NUM_10
+#define PIN_TFT_RST  GPIO_NUM_11
+#define PIN_TFT_DC   GPIO_NUM_12
+#define PIN_TFT_CS   GPIO_NUM_13
+#define PIN_TFT_BL   GPIO_NUM_14
 
-#define PIN_PWMA GPIO_NUM_1
-#define PIN_AIN1 GPIO_NUM_2
-#define PIN_AIN2 GPIO_NUM_3
-#define PIN_PWMB GPIO_NUM_4
-#define PIN_BIN1 GPIO_NUM_5
-#define PIN_BIN2 GPIO_NUM_6
-#define PIN_STBY GPIO_NUM_45
+// TB6612 控制脚 (PWMA AIN2 AIN1 STBY BIN1 BIN2 PWMB) -> GPIO 4 5 6 7 15 16 17
+#define PIN_PWMA GPIO_NUM_4
+#define PIN_AIN2 GPIO_NUM_5
+#define PIN_AIN1 GPIO_NUM_6
+#define PIN_STBY GPIO_NUM_7
+#define PIN_BIN1 GPIO_NUM_15
+#define PIN_BIN2 GPIO_NUM_16
+#define PIN_PWMB GPIO_NUM_17
 
-// ECHO 需经 1k + 2k 分压到 3.3V。原设计的 GPIO0 是下载模式 strapping 脚, 改用 GPIO14
-#define PIN_TRIG GPIO_NUM_46
-#define PIN_ECHO GPIO_NUM_14
+// HC-SR04 (TRIG ECHO); ECHO 需经 1k + 2k 分压到 3.3V
+// 避开 strapping 脚 (0/3/45/46) 和 N16R8 的 PSRAM 脚 (35/36/37)
+#define PIN_TRIG GPIO_NUM_42
+#define PIN_ECHO GPIO_NUM_41
 
 // ---------------- 参数 ----------------
 #define AP_SSID          "4WD-Car"
